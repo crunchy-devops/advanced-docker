@@ -1,0 +1,53 @@
+---
+- name: Install Docker
+  hosts: all
+  become: true
+  tasks:
+    - name: upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+        exclude: kernel*
+    - name: Add package epel-release
+      yum:
+        name:
+          - epel-release
+        state: present
+    - name: Install packages needed for docker and its ecosystem
+      yum:
+        name:
+          - yum-utils
+          - device-mapper-persistent-data
+          - lvm2
+          - python3
+          - python3-pip
+          - htop
+          - iotop
+          - iftop
+        state: present
+    - name: Set up a stable docker repository
+      command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    - name: Install docker packages
+      yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: present
+    - name: start service
+      service:
+        name: docker
+        state: started
+    - name: Enable docker service
+      service:
+        name: docker
+        enabled: yes
+    - name: Set current user to docker group
+      command: usermod -aG docker centos
+
+
+
+
+
+
+
