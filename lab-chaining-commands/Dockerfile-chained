@@ -1,0 +1,6 @@
+FROM debian:stretch
+RUN echo deb http://httpredir.debian.org/debian stretch-backports main \
+                  > /etc/apt/sources.list.d/stretch-backports.list && \
+     apt-get update && \
+     apt-get --no-install-recommends install -y openjdk-11-jre-headless && \
+     rm -rfv /var/lib/apt/lists/*
