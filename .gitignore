@@ -148,6 +148,7 @@ dmypy.json
 
 # ansible
 *.retry
+inventory
 
 # latext
 *.gz
