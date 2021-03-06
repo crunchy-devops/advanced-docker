@@ -1,8 +1,9 @@
 FROM ruby:2.6.1
 
-ADD . /app
+ADD Gemfile /app/Gemfile
 WORKDIR /app
-RUN bundle install
+RUN gem install -g
+ADD . /app
 
 EXPOSE 9292
 CMD rackup -E none
