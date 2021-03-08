@@ -15,15 +15,14 @@ sudo yum -y install python3
 ```
 
 ### Set up a python virtualenv, and install ansible
-```shell script
-  # in the jenkins-pic directory 
+```shell
   git clone   https://github.com/<your_github_account>/advanced-docker
   cd advanced-docker
   python3 -m venv venv  # install virtualenv module dans la directory venv
   python -V # check python version
   source venv/bin/activate # activate the python virtualenv
   pip3 install wheel  # install pip package wheel for permission usage
-  pip3 install --upgrade pip
+  pip install --upgrade pip
   pip3 install ansible # install ansible
   ansible --version  # check, should be version 2.10.6
 ```
