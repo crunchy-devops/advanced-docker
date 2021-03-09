@@ -7,7 +7,6 @@ sudo yum -y install epel-release  # added extra packages
 sudo yum -y install htop iotop iftop  # added monitoring tools 
 ```
 
-
 ##  Install Docker with  Ansible 
 ### Install Python 
 ```
